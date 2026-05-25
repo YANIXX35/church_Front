@@ -1,0 +1,303 @@
+/* ── PAGE HEADER ─────────────────────────────────────────── */
+.page-header {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 120px 0 80px;
+  text-align: center;
+  color: #fff;
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 26, 63, 0.7);
+  }
+
+  .container { position: relative; z-index: 1; }
+
+  h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.85);
+    margin: 0;
+  }
+}
+
+/* ── FILTRES ─────────────────────────────────────────────── */
+.section-filtres {
+  padding: 2rem 0 0.5rem;
+  background: #f8f9fa;
+
+  .filtres-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .filtre-btn {
+    padding: 0.5rem 1.4rem;
+    border: 2px solid var(--blue, #0a1a3f);
+    background: transparent;
+    color: var(--blue, #0a1a3f);
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s;
+
+    &:hover, &.active {
+      background: var(--blue, #0a1a3f);
+      color: #fff;
+    }
+  }
+}
+
+/* ── GRILLE DES PROGRAMMES ───────────────────────────────── */
+.section-prog-list {
+  padding: 3rem 0 4rem;
+  background: #f8f9fa;
+
+  .prog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.8rem;
+    margin-top: 1.5rem;
+  }
+}
+
+.prog-item {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.13);
+  }
+
+  .prog-item-header {
+    padding: 1rem 1.2rem 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .prog-jour {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--blue, #0a1a3f);
+    background: rgba(10, 26, 63, 0.07);
+    padding: 0.2rem 0.75rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .prog-item-body {
+    padding: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--blue, #0a1a3f);
+    margin: 0 0 0.5rem;
+  }
+
+  .prog-desc {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 0.9rem;
+  }
+}
+
+/* ── BADGES TYPE ─────────────────────────────────────────── */
+.prog-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.badge-priere     { background: #e8f4fd; color: #1a6fad; }
+.badge-culte      { background: #fef9e7; color: #b8860b; }
+.badge-enseignement { background: #eafaf1; color: #1e8449; }
+.badge-reunion    { background: #f4ecf7; color: #7d3c98; }
+.badge-default    { background: #f0f0f0; color: #555; }
+
+/* ── HORAIRES dans les cartes ────────────────────────────── */
+.prog-heures {
+  margin-bottom: 0.8rem;
+
+  .heures-label {
+    font-size: 0.8rem;
+    color: #888;
+    display: block;
+    margin-bottom: 0.4rem;
+
+    i { margin-right: 4px; }
+  }
+
+  .heures-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .heure-tag {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    background: #f0f4ff;
+    color: var(--blue, #0a1a3f);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+
+    &.heure-principale {
+      background: var(--gold, #c9a84c);
+      color: #fff;
+    }
+  }
+
+  .principale-badge {
+    font-size: 0.65rem;
+    font-weight: 600;
+    background: rgba(255,255,255,0.3);
+    padding: 0.1rem 0.4rem;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+}
+
+/* ── META (lieu) ─────────────────────────────────────────── */
+.prog-meta {
+  font-size: 0.82rem;
+  color: #888;
+  display: flex;
+  gap: 1rem;
+
+  i { margin-right: 4px; color: var(--gold, #c9a84c); }
+}
+
+/* ── ÉTATS LOADING / EMPTY ───────────────────────────────── */
+.loading-state, .empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #aaa;
+
+  p { margin-top: 1rem; font-size: 1rem; }
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #eee;
+  border-top-color: var(--gold, #c9a84c);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── SECTION HORAIRES (bandeau) ──────────────────────────── */
+.section-horaires {
+  position: relative;
+  padding: 4rem 0;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+
+  .overlay-dark {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 26, 63, 0.82);
+  }
+
+  .container { position: relative; z-index: 1; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+
+    h2 { font-size: 2rem; font-weight: 700; color: #fff; margin: 0.3rem 0 0; }
+  }
+
+  .section-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+}
+
+.horaires-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.horaire-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(201,168,76,0.35);
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition: background 0.25s;
+
+  &:hover, &.highlight-card {
+    background: rgba(201,168,76,0.15);
+    border-color: var(--gold, #c9a84c);
+  }
+
+  .horaire-jour {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold, #c9a84c);
+  }
+
+  .horaire-heure {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+
+    strong { color: var(--gold, #c9a84c); }
+  }
+
+  .horaire-type {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+  }
+}
+
+.horaires-note {
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  margin: 0;
+
+  strong { color: var(--gold, #c9a84c); }
+}

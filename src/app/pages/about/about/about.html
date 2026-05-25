@@ -1,0 +1,86 @@
+<!-- HEADER -->
+<header class="page-header" style="background-image: url('images/img_bg_2.jpg');">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="page-header-content">
+      <h1>À Propos de Nous</h1>
+      <p>Église Universelle du Royaume de Dieu</p>
+    </div>
+  </div>
+</header>
+
+<!-- HISTOIRE & VISION -->
+<section class="section-about">
+  <div class="container">
+    <div class="about-grid animate-box">
+      <div class="about-text">
+        <div class="about-block">
+          <h3>Notre Histoire</h3>
+          <p>L'Église Universelle du Royaume de Dieu est implantée à <strong>Grand-Bassam</strong>, non loin de l'ex Cinéma Congo. Fondée avec une vision claire, elle est un lieu où les âmes rencontrent Dieu, où les vies sont transformées par la puissance de l'Évangile.</p>
+          <p>Aujourd'hui, notre communauté compte <strong>plus de 200 membres</strong> — familles, jeunes et anciens — tous unis dans la même foi et le même amour pour le Seigneur.</p>
+        </div>
+        <div class="about-block">
+          <h3>Notre Mission &amp; Vision</h3>
+          <p>Notre mission est d'annoncer l'Évangile de Jésus-Christ à toute créature, de faire des disciples de toutes les nations et d'établir le Royaume de Dieu sur la terre.</p>
+          <p>Nous croyons que chaque personne a une valeur infinie aux yeux de Dieu et mérite d'entendre la Bonne Nouvelle du salut.</p>
+        </div>
+      </div>
+      <div class="about-image">
+        <img src="images/img_bg_1.jpg" alt="Église URD" class="img-responsive">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALEURS -->
+<section class="section-valeurs">
+  <div class="container">
+    <div class="section-header animate-box">
+      <span class="section-label">Ce En Quoi Nous Croyons</span>
+      <h2>Nos Valeurs Fondamentales</h2>
+    </div>
+    <div class="valeurs-grid">
+      <div class="valeur-card animate-box">
+        <i class="icon-book"></i>
+        <h4>La Parole de Dieu</h4>
+        <p>La Bible est notre autorité suprême. Chaque enseignement est ancré dans la vérité de la Parole de Dieu.</p>
+      </div>
+      <div class="valeur-card animate-box">
+        <i class="icon-heart"></i>
+        <h4>L'Amour Fraternel</h4>
+        <p>Nous nous aimons les uns les autres comme Christ nous a aimés, formant une famille unie dans l'Esprit.</p>
+      </div>
+      <div class="valeur-card animate-box">
+        <i class="icon-group"></i>
+        <h4>L'Évangélisation</h4>
+        <p>Nous portons l'Évangile à ceux qui ne connaissent pas encore Jésus-Christ comme Seigneur et Sauveur.</p>
+      </div>
+      <div class="valeur-card animate-box">
+        <i class="icon-star"></i>
+        <h4>L'Excellence</h4>
+        <p>Nous faisons tout avec excellence pour la gloire de Dieu, dans le culte, le service et la vie quotidienne.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÉQUIPE PASTORALE -->
+<section class="section-equipe">
+  <div class="container">
+    <div class="section-header animate-box">
+      <span class="section-label">Leadership</span>
+      <h2>Notre Équipe Pastorale</h2>
+      <p>Des serviteurs de Dieu dévoués à votre épanouissement spirituel</p>
+    </div>
+    <div class="equipe-grid">
+      @for (membre of equipe; track membre.nom) {
+        <div class="membre-card animate-box">
+          <img [src]="membre.photo" [alt]="membre.nom" class="membre-photo">
+          <h3>{{ membre.nom }}</h3>
+          <strong class="membre-role">{{ membre.role }}</strong>
+          <p>{{ membre.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

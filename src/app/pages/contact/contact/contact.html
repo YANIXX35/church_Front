@@ -1,0 +1,103 @@
+<!-- HEADER -->
+<header class="page-header" style="background-image: url('images/img_bg_4.jpg');">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="page-header-content">
+      <h1>Contactez-Nous</h1>
+      <p>Nous sommes là pour vous</p>
+    </div>
+  </div>
+</header>
+
+<section class="section-contact">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- INFOS -->
+      <div class="contact-info animate-box">
+        <h3>Venez Nous Rendre Visite</h3>
+        <div class="info-item">
+          <i class="icon-map-marker"></i>
+          <div>
+            <strong>Adresse</strong>
+            <p>À configurer — Siège de l'Église URD</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="icon-phone"></i>
+          <div>
+            <strong>Téléphone</strong>
+            <p>À configurer</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="icon-envelope"></i>
+          <div>
+            <strong>Email</strong>
+            <p>contact&#64;eglise-urd.com</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="icon-clock"></i>
+          <div>
+            <strong>Horaires des Cultes</strong>
+            <p>Dimanche : 09h00 – 12h00</p>
+            <p>Mercredi : 18h00 – 20h00</p>
+            <p>Vendredi : 19h00 – 21h00</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORMULAIRE -->
+      <div class="contact-form-wrap animate-box">
+        <h3>Envoyez-Nous un Message</h3>
+
+        @if (submitSuccess) {
+          <div class="alert-success">
+            <i class="icon-check"></i> Votre message a été envoyé avec succès ! Nous vous répondrons très bientôt.
+          </div>
+        }
+
+        @if (submitError) {
+          <div class="alert-error">{{ submitError }}</div>
+        }
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+          <div class="form-group" [class.invalid]="f['nom'].invalid && f['nom'].touched">
+            <label for="nom">Votre Nom *</label>
+            <input id="nom" type="text" formControlName="nom" placeholder="Jean Dupont">
+            @if (f['nom'].invalid && f['nom'].touched) {
+              <span class="error-msg">Le nom est requis (min. 2 caractères)</span>
+            }
+          </div>
+
+          <div class="form-group" [class.invalid]="f['email'].invalid && f['email'].touched">
+            <label for="email">Email *</label>
+            <input id="email" type="email" formControlName="email" placeholder="jean@exemple.com">
+            @if (f['email'].invalid && f['email'].touched) {
+              <span class="error-msg">Veuillez saisir un email valide</span>
+            }
+          </div>
+
+          <div class="form-group">
+            <label for="sujet">Sujet</label>
+            <input id="sujet" type="text" formControlName="sujet" placeholder="Demande de prière, information...">
+          </div>
+
+          <div class="form-group" [class.invalid]="f['message'].invalid && f['message'].touched">
+            <label for="message">Message *</label>
+            <textarea id="message" formControlName="message" rows="5" placeholder="Votre message..."></textarea>
+            @if (f['message'].invalid && f['message'].touched) {
+              <span class="error-msg">Le message est requis (min. 10 caractères)</span>
+            }
+          </div>
+
+          <button type="submit" class="btn-church" [disabled]="isSubmitting">
+            @if (isSubmitting) { Envoi en cours... } @else { Envoyer le Message }
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>

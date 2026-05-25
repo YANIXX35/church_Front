@@ -1,0 +1,112 @@
+<!-- HEADER -->
+<header class="page-header" style="background-image: url('images/img_bg_3.jpg');">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="page-header-content">
+      <h1>Programmes de Prières</h1>
+      <p>Rejoignez-nous dans la présence de Dieu</p>
+    </div>
+  </div>
+</header>
+
+<!-- FILTRES -->
+<section class="section-filtres">
+  <div class="container">
+    <div class="filtres-bar">
+      @for (filtre of filtres; track filtre.key) {
+        <button class="filtre-btn" [class.active]="filtreActif === filtre.key" (click)="setFiltre(filtre.key)">
+          {{ filtre.label }}
+        </button>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- LISTE DES PROGRAMMES -->
+<section class="section-prog-list">
+  <div class="container">
+    @if (isLoading) {
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Chargement des programmes...</p>
+      </div>
+    }
+
+    @if (!isLoading && programmesFiltres.length === 0) {
+      <div class="empty-state">
+        <i class="icon-calendar"></i>
+        <p>Aucun programme trouvé pour cette catégorie.</p>
+      </div>
+    }
+
+    <div class="prog-grid">
+      @for (prog of programmesFiltres; track prog.id) {
+        <div class="prog-item animate-box">
+          <div class="prog-item-header">
+            @if (prog.jour) {
+              <span class="prog-jour">{{ prog.jour }}</span>
+            }
+            <span [class]="'prog-badge ' + getBadgeClass(prog.type_programme)">
+              {{ getTypeLabel(prog.type_programme) }}
+            </span>
+          </div>
+          <div class="prog-item-body">
+            <h3>{{ prog.titre }}</h3>
+            <p class="prog-desc">{{ prog.description }}</p>
+
+            @if (prog.heures && prog.heures.length > 0) {
+              <div class="prog-heures">
+                <span class="heures-label"><i class="icon-clock"></i> Horaires :</span>
+                <div class="heures-list">
+                  @for (h of prog.heures; track h) {
+                    <span [class]="'heure-tag' + (h === prog.heure_principale ? ' heure-principale' : '')">
+                      {{ h }}
+                      @if (h === prog.heure_principale) {
+                        <span class="principale-badge">principale</span>
+                      }
+                    </span>
+                  }
+                </div>
+              </div>
+            }
+
+            <div class="prog-meta">
+              @if (prog.lieu) {
+                <span><i class="icon-map-marker"></i> {{ prog.lieu }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- HORAIRES HEBDOMADAIRES -->
+<section class="section-horaires" style="background-image: url('images/img_bg_4.jpg');">
+  <div class="overlay-dark"></div>
+  <div class="container">
+    <div class="section-header animate-box" style="color: white;">
+      <span class="section-label" style="color: var(--gold);">Planning de la Semaine</span>
+      <h2>Nos Rendez-vous Hebdomadaires</h2>
+    </div>
+    <div class="horaires-grid">
+      <div class="horaire-card">
+        <span class="horaire-jour">Lun – Ven</span>
+        <span class="horaire-heure">6h00 · 15h00 · <strong>18h30</strong></span>
+        <span class="horaire-type">Prières quotidiennes</span>
+      </div>
+      <div class="horaire-card">
+        <span class="horaire-jour">Samedi</span>
+        <span class="horaire-heure">À confirmer</span>
+        <span class="horaire-type">Réunions & Évangélisation</span>
+      </div>
+      <div class="horaire-card highlight-card">
+        <span class="horaire-jour">Dimanche</span>
+        <span class="horaire-heure">6h00 · <strong>10h00</strong></span>
+        <span class="horaire-type">La Grande Prière</span>
+      </div>
+    </div>
+    <p class="horaires-note">L'heure principale est indiquée en <strong>gras</strong>. Tous sont les bienvenus !</p>
+  </div>
+</section>

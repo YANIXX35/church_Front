@@ -1,0 +1,132 @@
+<!-- HERO SLIDER -->
+<section class="hero-slider">
+  @for (slide of slides; track slide.titre; let i = $index) {
+    <div class="slide" [class.active]="i === currentSlide"
+      [style.backgroundImage]="'url(' + slide.image + ')'">
+      <div class="overlay-gradient"></div>
+      <div class="container">
+        <div class="slide-content">
+          <span class="slide-subtitle animate-in">{{ slide.sousTitre }}</span>
+          <h1 class="slide-title animate-in">{{ slide.titre }}</h1>
+          <p class="slide-text animate-in">{{ slide.texte }}</p>
+          <a [routerLink]="slide.lien" class="btn-church animate-in">{{ slide.btnTexte }}</a>
+        </div>
+      </div>
+    </div>
+  }
+  <button class="slider-btn prev" (click)="prevSlide()" aria-label="Précédent">&#8249;</button>
+  <button class="slider-btn next" (click)="nextSlide()" aria-label="Suivant">&#8250;</button>
+  <div class="slider-dots">
+    @for (slide of slides; track slide.titre; let i = $index) {
+      <span class="dot" [class.active]="i === currentSlide" (click)="setSlide(i)"></span>
+    }
+  </div>
+</section>
+
+<!-- SERVICES / POINTS FORTS -->
+<section class="section-features">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-card animate-box">
+        <span class="feature-icon"><i class="icon-book"></i></span>
+        <h3>Enseignement Biblique</h3>
+        <p>Des messages profonds et inspirants tirés de la Parole de Dieu pour transformer votre vie.</p>
+        <a routerLink="/programmes" class="btn-outline-church">Voir les cultes</a>
+      </div>
+      <div class="feature-card animate-box">
+        <span class="feature-icon"><i class="icon-users"></i></span>
+        <h3>Communauté Unie</h3>
+        <p>Rejoignez une famille spirituelle qui se soutient mutuellement dans l'amour de Dieu.</p>
+        <a routerLink="/about" class="btn-outline-church">Notre communauté</a>
+      </div>
+      <div class="feature-card animate-box">
+        <span class="feature-icon"><i class="icon-heart"></i></span>
+        <h3>Prière &amp; Intercession</h3>
+        <p>Des séances de prières régulières pour couvrir vos besoins et ceux de votre famille.</p>
+        <a routerLink="/programmes" class="btn-outline-church">Programmes de prière</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCHAINS PROGRAMMES -->
+<section class="section-programmes">
+  <div class="container">
+    <div class="section-header animate-box">
+      <span class="section-label">Agenda</span>
+      <h2>Prochains Programmes</h2>
+      <p>Rejoignez-nous pour nos prochains événements spirituels</p>
+    </div>
+    <div class="programmes-preview">
+      <div class="prog-card animate-box">
+        <div class="prog-day">
+          <span class="day-name">DIM</span>
+          <span class="day-num">Chaque semaine</span>
+        </div>
+        <div class="prog-info">
+          <h4>Culte Principal</h4>
+          <p><i class="icon-clock"></i> 09h00 – 12h00</p>
+          <p><i class="icon-map-marker"></i> Siège de l'Église</p>
+        </div>
+        <span class="prog-badge culte">Culte</span>
+      </div>
+      <div class="prog-card animate-box">
+        <div class="prog-day">
+          <span class="day-name">MER</span>
+          <span class="day-num">Chaque semaine</span>
+        </div>
+        <div class="prog-info">
+          <h4>Prière du Milieu de Semaine</h4>
+          <p><i class="icon-clock"></i> 18h00 – 20h00</p>
+          <p><i class="icon-map-marker"></i> Siège de l'Église</p>
+        </div>
+        <span class="prog-badge priere">Prière</span>
+      </div>
+      <div class="prog-card animate-box">
+        <div class="prog-day">
+          <span class="day-name">VEN</span>
+          <span class="day-num">Chaque semaine</span>
+        </div>
+        <div class="prog-info">
+          <h4>Veillée de Prière</h4>
+          <p><i class="icon-clock"></i> 19h00 – 21h00</p>
+          <p><i class="icon-map-marker"></i> Siège de l'Église</p>
+        </div>
+        <span class="prog-badge veilee">Veillée</span>
+      </div>
+    </div>
+    <div class="text-center" style="margin-top: 2rem;">
+      <a routerLink="/programmes" class="btn-church">Tous les Programmes</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPTEURS -->
+<section class="section-counters" style="background-image: url('images/img_bg_5.jpg');">
+  <div class="overlay-dark"></div>
+  <div class="container">
+    <div class="counters-grid">
+      @for (c of counters; track c.label) {
+        <div class="counter-item animate-box">
+          <i [class]="c.icon"></i>
+          <span class="counter-num">{{ c.valeur }}+</span>
+          <span class="counter-label">{{ c.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section-newsletter">
+  <div class="container">
+    <div class="newsletter-box animate-box">
+      <h2>Restez Informé</h2>
+      <p>Abonnez-vous pour recevoir les programmes et nouvelles de l'église</p>
+      <form class="newsletter-form" (submit)="$event.preventDefault()">
+        <input type="email" placeholder="Votre adresse email" class="newsletter-input">
+        <button type="submit" class="btn-church">S'abonner</button>
+      </form>
+    </div>
+  </div>
+</section>

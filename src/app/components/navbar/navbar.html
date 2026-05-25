@@ -1,0 +1,24 @@
+<nav class="church-nav" role="navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <a routerLink="/">
+          <span class="logo-icon">&#9997;</span>
+          <span class="logo-text">URD</span>
+        </a>
+      </div>
+
+      <button class="nav-toggle" (click)="toggleMenu()" [class.open]="menuOpen">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" [class.open]="menuOpen">
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="closeMenu()">Accueil</a></li>
+        <li><a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">À Propos</a></li>
+        <li><a routerLink="/programmes" routerLinkActive="active" (click)="closeMenu()">Programmes</a></li>
+        <li><a routerLink="/fju" routerLinkActive="active" (click)="closeMenu()" class="fju-link">FJU</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

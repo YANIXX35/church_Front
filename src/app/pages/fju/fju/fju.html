@@ -1,0 +1,102 @@
+<!-- HEADER -->
+<header class="fju-header" style="background-image: url('images/img_bg_5.jpg');">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="fju-header-content animate-box">
+      <span class="fju-label">Ministère Jeunesse</span>
+      <h1>F<span class="accent">J</span>U</h1>
+      <p class="fju-subtitle">Force de la Jeunesse de l'URD</p>
+      <p class="fju-desc">Jeunes fervents, engagés pour le Royaume de Dieu à Bassam</p>
+      <a routerLink="/contact" class="btn-fju">Rejoindre le mouvement</a>
+    </div>
+  </div>
+</header>
+
+<!-- QUI SOMMES-NOUS -->
+<section class="section-qui">
+  <div class="container">
+    <div class="qui-grid animate-box">
+      <div class="qui-image">
+        <img src="images/img_bg_2.jpg" alt="FJU - Force de la Jeunesse URD">
+        <div class="qui-badge">+200 membres</div>
+      </div>
+      <div class="qui-text">
+        <span class="section-label">Notre Identité</span>
+        <h2>Qui sommes-nous ?</h2>
+        <p>La <strong>FJU — Force de la Jeunesse de l'URD</strong> est le bras jeunesse de l'Église Universelle du Royaume de Dieu de Bassam. Nous sommes un mouvement de jeunes passionnés de Dieu, déterminés à vivre pleinement leur foi et à impacter leur génération.</p>
+        <p>Sous la direction du <strong>Pasteur Ibrahim</strong>, la FJU rassemble des jeunes de tous horizons autour d'une seule passion : connaître Dieu, Le servir et Le faire connaître aux autres.</p>
+        <div class="qui-stats">
+          <div class="stat">
+            <strong>200+</strong>
+            <span>Membres</span>
+          </div>
+          <div class="stat">
+            <strong>7j/7</strong>
+            <span>Prières</span>
+          </div>
+          <div class="stat">
+            <strong>Bassam</strong>
+            <span>Grand-Bassam, CI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALEURS -->
+<section class="section-valeurs-fju">
+  <div class="container">
+    <div class="section-header animate-box">
+      <span class="section-label">Notre ADN</span>
+      <h2>Nos Valeurs</h2>
+    </div>
+    <div class="valeurs-grid">
+      @for (v of valeurs; track v.titre) {
+        <div class="valeur-card animate-box">
+          <i [class]="v.icon"></i>
+          <h4>{{ v.titre }}</h4>
+          <p>{{ v.texte }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITÉS -->
+<section class="section-activites">
+  <div class="container">
+    <div class="section-header animate-box">
+      <span class="section-label">Ce que nous faisons</span>
+      <h2>Nos Activités</h2>
+      <p>Des actions concrètes pour grandir en Christ et servir notre communauté</p>
+    </div>
+    <div class="activites-grid">
+      @for (act of activites; track act.titre) {
+        <div class="activite-card animate-box">
+          <div class="activite-icon">
+            <i [class]="act.icon"></i>
+          </div>
+          <h3>{{ act.titre }}</h3>
+          <p>{{ act.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- REJOINDRE CTA -->
+<section class="section-cta" style="background-image: url('images/img_bg_4.jpg');">
+  <div class="overlay-dark"></div>
+  <div class="container">
+    <div class="cta-content animate-box">
+      <span class="section-label" style="color: var(--gold);">Fais partie de l'aventure</span>
+      <h2>Rejoins la FJU !</h2>
+      <p>Tu es jeune, tu cherches à te connecter à Dieu et à servir ? La FJU est ta famille. Rejoins-nous chaque semaine à l'Église Universelle du Royaume de Dieu, non loin de l'ex Cinéma Congo à Grand-Bassam.</p>
+      <div class="cta-actions">
+        <a routerLink="/contact" class="btn-primary">Nous contacter</a>
+        <a routerLink="/programmes" class="btn-outline">Voir les programmes</a>
+      </div>
+    </div>
+  </div>
+</section>
